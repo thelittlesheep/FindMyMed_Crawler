@@ -1,8 +1,6 @@
 import requests
-import time
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+
 
 def get_page(URL,drugName):
 
@@ -31,20 +29,18 @@ def get_page(URL,drugName):
 		'ctl00$ContentPlaceHolder1$ddlMedType': '',
 		'ctl00$ContentPlaceHolder1$ddlIsUpdate': '',
 		'ctl00$ContentPlaceHolder1$tbxACT': '',
-		'ctl00$ContentPlaceHolder1$rblType': '迄今',
-		'ctl00$ContentPlaceHolder1$tbxPageNum': '1000',
+		'ctl00$ContentPlaceHolder1$rblType': '迄今', #如果需查詢歷年資料，則此值空白即可
+		'ctl00$ContentPlaceHolder1$tbxPageNum': '1000', #每一頁顯示筆數
 		'ctl00$ContentPlaceHolder1$btnSubmit': '開始查詢'
 	}
 
-	session_requests = requests.session()
-	result = session_requests.post(URL, data = form)
+	result = requests.post(URL, data = form)
 	soup = BeautifulSoup(result.text, 'html.parser')
 
 	return soup
 
 def get_hiddenvalue(URL):
-	session_requests = requests.session()
-	result = session_requests.get(URL)
+	result = requests.get(URL)
 	soup = BeautifulSoup(result.text, 'html.parser')
 	view_state = soup.find_all(id='__VIEWSTATE')
 	for view_state_value in view_state:
@@ -68,12 +64,12 @@ def get_result(drugName,URL):
 	druglist = []
 	raw_druglink = []
 	druglink = []
-	full_druglist = []
 
 	div = soup.find(id='ctl00_ContentPlaceHolder1_div_result')
 	href = soup.find_all('a')
 	rows = div.find_all('tr')
 	rowsnum = len(rows)
+
 	for i in range(3,rowsnum):
 		druglist.append(list(rows[i].stripped_strings))
 	for link in href:
@@ -91,16 +87,10 @@ def get_result(drugName,URL):
 		k = page+len(druglist)
 		full_druglist.append([k,druglist[i][1],druglist[i][2],druglink[i]])'''
 
-	return full_druglist
-
-def get_input():
-	ch = input('請輸入欲查詢之藥品英文名稱:')
-	if ch == '':
-		return ch
-
+	return druglist
 
 def main():
-	drugName = 'CLINDAMYCIN'
+	drugName = input('請輸入欲查詢之藥品英文名稱:')
 	URL='https://www.nhi.gov.tw/QueryN/Query1.aspx'
 	get_result(drugName, URL)
 

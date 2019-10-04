@@ -1,0 +1,51 @@
+import requests
+from bs4 import BeautifulSoup
+import urllib.parse
+
+
+def get_page(URL, inputtext):
+    unicode_inputtext = urllib.parse.quote(inputtext) #將中文字轉換為unicode，此例中不需要轉換
+    my_params = {'keyword':unicode_inputtext}
+    session_requests = requests.session()
+    result = session_requests.get(URL, params = my_params)
+    soup = BeautifulSoup(result.text, 'html.parser')
+
+    return soup
+
+def get_result(inputtext, URL):
+    soup = get_page(URL, inputtext)
+
+    druglist = []
+    raw_druglink = []
+    druglink = []
+    full_druglist = []
+
+    div = soup.find(id='medicineTable')
+    href = div.find_all('a')
+    rows = div.find_all('tr')
+    rowsnum = len(rows)
+    for i in range(2, rowsnum):
+        druglist.append(list(rows[i].stripped_strings))
+    for link in href:
+        raw_druglink.append(link.get('href'))
+    for i in range(1, len(druglist)+1):
+        druglink.append(raw_druglink[i])
+    for i in range(0, len(druglist)):
+        k = i + 1
+        print('查詢序號:' + str(k))
+        print('藥物名稱:' + druglist[i][0])
+        print('藥物中文名稱:' + druglist[i][1])
+        print('藥物詳細資料:' + druglink[i])
+        print(' ')
+
+    return full_druglist
+
+
+def main():
+    inputtext = input('請輸入欲查詢之藥品名稱或關鍵字:')
+    URL = 'https://www.kingnet.com.tw/knNew/medicine/medicine_search.html?'
+    get_result(inputtext, URL)
+
+
+if __name__ == '__main__':
+    main()
