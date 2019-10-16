@@ -61,16 +61,23 @@ def main():
     URL = 'https://www.kingnet.com.tw/knNew/medicine/medicine_search.html?'
     totalpage_full_druglist = []
     pagenumbers = get_pagenum(URL, inputtext)
+    fp = open(inputtext+'.txt', 'w')
     for i in range(0, pagenumbers):
         soup = get_page(URL, inputtext, i + 1)
         total_druglist = get_result(soup)
         totalpage_full_druglist.append(total_druglist)
         for j in range(0, count_pageobject(soup)):
-            print('查詢序號:' + str(i+1) + '-' + str(totalpage_full_druglist[i][j][0]))
+            '''print('查詢序號:' + str(i+1) + '-' + str(totalpage_full_druglist[i][j][0]))
             print('藥物分類:' + str(totalpage_full_druglist[i][j][1]))
             print('藥物名稱:' + str(totalpage_full_druglist[i][j][2]))
             print('藥物詳細資料:' + str(totalpage_full_druglist[i][j][3]))
-            print('')
+            print('')'''
+            fp.write('查詢序號:' + str(i+1) + '-' + str(totalpage_full_druglist[i][j][0])+'\n')
+            fp.write('藥物分類:' + str(totalpage_full_druglist[i][j][1])+'\n')
+            fp.write('藥物名稱:' + str(totalpage_full_druglist[i][j][2])+'\n')
+            fp.write('藥物詳細資料:' + str(totalpage_full_druglist[i][j][3])+'\n')
+            fp.write('\n\n')
+    fp.close()
 
 
 if __name__ == '__main__':
