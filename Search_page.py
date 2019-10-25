@@ -15,6 +15,7 @@ def get_page(URL, inputtext, pagenum): #傳入URL,inputtext
 
 
 def get_pagenum(URL, inputtext):
+    #利用beautifulsoup整理頁面資訊，取得搜尋結果頁數(return int)
     unicode_inputtext = urllib.parse.quote(inputtext)  # 將中文字轉換為unicode，此例中不需要轉換
     my_params = {'keyword': unicode_inputtext}
     session_requests = requests.session()
@@ -27,6 +28,7 @@ def get_pagenum(URL, inputtext):
 
 
 def get_result(soup):
+    #利用beautifulsoup整理頁面資訊(return list)
     druglist = []
     raw_druglink = []
     druglink = []
@@ -50,34 +52,56 @@ def get_result(soup):
 
 
 def count_pageobject(soup):
+    #計算當頁面有多少筆資料
     div = soup.find(id='medicineContentList')
     rows = div.find_all('tr')
 
     return len(rows)-1
 
-
 def main():
+    #主程式
+    inputtext = input('請輸入欲查詢之藥品名稱或關鍵字:')
+    URL = 'https://www.kingnet.com.tw/knNew/medicine/medicine_search.html?'
+    totalpage_full_druglist = []
+    totaldrug_link = []
+    pagenumbers = get_pagenum(URL, inputtext)
+    items = 0
+    for i in range(0, pagenumbers):
+        #從第一頁開始歷遍所有查詢結果頁面
+        soup = get_page(URL, inputtext, i + 1)
+        total_druglist = get_result(soup)
+        totalpage_full_druglist.append(total_druglist)
+        items = len(totalpage_full_druglist[i])+items
+    print(totalpage_full_druglist)
+    return totalpage_full_druglist
+'''def main():
+    #寫入檔案用
     inputtext = input('請輸入欲查詢之藥品名稱或關鍵字:')
     URL = 'https://www.kingnet.com.tw/knNew/medicine/medicine_search.html?'
     totalpage_full_druglist = []
     pagenumbers = get_pagenum(URL, inputtext)
-    fp = open(inputtext+'.txt', 'w')
+    
+    fp = open(inputtext+'.txt', 'w',encoding="utf-8")
+    
     for i in range(0, pagenumbers):
+        #從第一頁開始歷遍所有查詢結果頁面
         soup = get_page(URL, inputtext, i + 1)
         total_druglist = get_result(soup)
         totalpage_full_druglist.append(total_druglist)
         for j in range(0, count_pageobject(soup)):
-            '''print('查詢序號:' + str(i+1) + '-' + str(totalpage_full_druglist[i][j][0]))
-            print('藥物分類:' + str(totalpage_full_druglist[i][j][1]))
-            print('藥物名稱:' + str(totalpage_full_druglist[i][j][2]))
-            print('藥物詳細資料:' + str(totalpage_full_druglist[i][j][3]))
-            print('')'''
+            #從該頁面讀取所有查詢結果項目，並寫入檔案
+            #print('查詢序號:' + str(i+1) + '-' + str(totalpage_full_druglist[i][j][0]))
+            #print('藥物分類:' + str(totalpage_full_druglist[i][j][1]))
+            #print('藥物名稱:' + str(totalpage_full_druglist[i][j][2]))
+            #print('藥物詳細資料:' + str(totalpage_full_druglist[i][j][3]))
+            #print('')
             fp.write('查詢序號:' + str(i+1) + '-' + str(totalpage_full_druglist[i][j][0])+'\n')
             fp.write('藥物分類:' + str(totalpage_full_druglist[i][j][1])+'\n')
             fp.write('藥物名稱:' + str(totalpage_full_druglist[i][j][2])+'\n')
             fp.write('藥物詳細資料:' + str(totalpage_full_druglist[i][j][3])+'\n')
             fp.write('\n\n')
-    fp.close()
+
+    fp.close()'''
 
 
 if __name__ == '__main__':
