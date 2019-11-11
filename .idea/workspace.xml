@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cbac63e-80f3-4f24-972a-127abf177fcd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DrugApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DrugApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ejiej.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Headless.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MITCrawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NHIdataCrawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kingnetCrawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCrawler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageDetail.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageDetail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/Search_page.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +33,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/kingnetCrawler.py" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -62,7 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Search_page">
+  <component name="RunManager" selected="Python.PageDetail">
     <configuration name="PageDetail" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DrugApp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,8 +103,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Search_page" />
         <item itemvalue="Python.PageDetail" />
+        <item itemvalue="Python.Search_page" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +130,13 @@
       <workItem from="1571473885053" duration="146000" />
       <workItem from="1571644469467" duration="2743000" />
       <workItem from="1571896049941" duration="608000" />
-      <workItem from="1571901545723" duration="7333000" />
+      <workItem from="1571901545723" duration="7770000" />
+      <workItem from="1572312279555" duration="19192000" />
+      <workItem from="1572498899745" duration="1625000" />
+      <workItem from="1573182674017" duration="253000" />
+      <workItem from="1573459352792" duration="61000" />
+      <workItem from="1573459495406" duration="876000" />
+      <workItem from="1573462822866" duration="598000" />
     </task>
     <servers />
   </component>
@@ -158,9 +158,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DrugApp$kingnetCrawlerarticle.coverage" NAME="kingnetCrawlerarticle Coverage Results" MODIFIED="1571903133670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DrugApp$PageDetail.coverage" NAME="PageDetail Coverage Results" MODIFIED="1571969565928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DrugApp$PageDetail.coverage" NAME="PageDetail Coverage Results" MODIFIED="1573460420919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DrugApp$NHIdataCrawler.coverage" NAME="NHIdataCrawler Coverage Results" MODIFIED="1571647152236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DrugApp$kingnetCrawler.coverage" NAME="kingnetCrawler Coverage Results" MODIFIED="1571902234338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DrugApp$Search_page.coverage" NAME="Search_page Coverage Results" MODIFIED="1571970674266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DrugApp$Search_page.coverage" NAME="Search_page Coverage Results" MODIFIED="1572499130605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
