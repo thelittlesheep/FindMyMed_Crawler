@@ -1,6 +1,4 @@
 import Search_page
-from Search_page import get_result
-
 
 def get_pageDetail(soup):
     page_content = []
@@ -59,11 +57,13 @@ def text_process(soup):
 
     return [contradictions_list, mamiitem_list, effect_list, useway_list, interaction_list]
 
-
 def main():
     drug_link = Search_page.main()[0][0][3]
     URL = drug_link
     soup = Search_page.get_page(URL, str(None), None)
+
+    #return [get_pageDetail(soup), text_process(soup)]
+
     print("適應症:" + '\n' + str(get_pageDetail(soup)[0]) + '\n')
     print("副作用:" + '\n' + str(get_pageDetail(soup)[1]) + '\n')
     print("警語:" + '\n' + str(get_pageDetail(soup)[2]) + '\n')
