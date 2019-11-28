@@ -65,9 +65,9 @@ def search_input():
     return unicode_inputtext
 
 
-def main():
+def main(input):
     # 主程式
-    input = search_input()
+    #input = search_input()
     URL = 'https://www.kingnet.com.tw/knNew/medicine/medicine_search.html?'
     totalpage_full_druglist = []
     pagenumbers = get_pagenum(URL, input)
