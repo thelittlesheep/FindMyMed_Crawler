@@ -1,7 +1,7 @@
 import openpyxl
 import os
 
-def top100(sheet, drug107_list, drug106_list, drug105_list):
+'''def top100(sheet, drug107_list, drug106_list, drug105_list):
     for i in range(2, 105):
         #2~105，d1^d2^d3 = top100drugs
         drug107_list.append(sheet.cell(row=i, column=3).value)
@@ -17,7 +17,7 @@ def top100(sheet, drug107_list, drug106_list, drug105_list):
     for i in range(0, len(d5)):
         top100drugsname.append(list(d5)[i].split(',')[0].split(' ')[0])
 
-    return top100drugsname
+    return top100drugsname'''
 
 def all_drug(sheet, drug107_list, drug106_list, drug105_list):
     for i in range(2, 3382):
@@ -49,10 +49,8 @@ def main():
     drug106_list = []
     drug105_list = []
     a = all_drug(sheet, drug107_list, drug106_list, drug105_list)
-    b = top100(sheet, drug107_list, drug106_list, drug105_list)
+    #b = top100(sheet, drug107_list, drug106_list, drug105_list)
     # print(a)
-    print(a[137])
-    print(a[320])
 
     return a
 
