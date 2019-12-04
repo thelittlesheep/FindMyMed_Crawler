@@ -13,13 +13,14 @@ def db_createtable(c):
 
 def db_insert(c, input, i):
     if PageDetail.main(input) is True:
-        c.execute("REPLACE INTO storage (DrugNo, name) values (?, ?)",(i, input))
+        c.execute("REPLACE INTO storage (DrugNo, name) values (?, ?)", (i, input))
     else:
         data = PageDetail.main(input)
         'data[0][1], data[0][2], data[0][0], data[0][1], data[0][2], data[1][0], data[1][1], data[1][2], data[1][3], data[1][4]'
         c.execute(
             "REPLACE INTO storage (DrugNo, name, tags, cureitem, aftereffect, careitem, contradictions, mamiitem, effect, useway, interaction) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            (i, str(data[0][0]), str(data[1][0]), str(data[0][2]), str(data[0][3]), str(data[0][4]), str(data[1][1]), str(data[1][2]), str(data[1][3]), str(data[1][4]), str(data[1][5])))
+            (i, str(data[0][0]), str(data[1][0]), str(data[0][2]), str(data[0][3]), str(data[0][4]), str(data[1][1]),
+             str(data[1][2]), str(data[1][3]), str(data[1][4]), str(data[1][5])))
 
 
 def main():
@@ -29,9 +30,9 @@ def main():
     db_createtable(c)
     i = 245
     name = 'CODEINE PHOSPHATE'
-    db_insert(c, name, i+1)
+    db_insert(c, name, i + 1)
     conn.commit()
-    print("第" + str(i+1) + "項資料新增成功")
+    print("第" + str(i + 1) + "項資料新增成功")
 
 
 if __name__ == '__main__':
