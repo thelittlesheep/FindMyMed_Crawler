@@ -34,14 +34,14 @@ def all_drug(sheet, drug107_list, drug106_list, drug105_list):
     all_drug = []
     all_drug_raw = []
     for i in range(0, len(d5)):
-            all_drug.append(list(d5)[i].split(',')[0].split(' ')[0])
+        all_drug.append(list(d5)[i].split(',')[0].split(' ')[0])
     for i in range(0, len(d5)):
         all_drug_raw.append(list(d5)[i])
-    return all_drug_raw
+    return all_drug
 
 def main():
     # os.chdir 是 python 切換到電腦指定路徑的方法
-    os.chdir(r"C:\Users\ejiej\Downloads\專題\用藥資料")
+    os.chdir(r"C:\Users\ejiej\OneDrive\作業與上課講義\專題\用藥資料")
     workbook = openpyxl.load_workbook('107~105.xlsx')
     sheet = workbook['book1']
 
@@ -50,7 +50,7 @@ def main():
     drug105_list = []
     a = all_drug(sheet, drug107_list, drug106_list, drug105_list)
     #b = top100(sheet, drug107_list, drug106_list, drug105_list)
-    # print(a)
+    #print(len(a))
 
     return a
 

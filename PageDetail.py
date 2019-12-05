@@ -54,6 +54,10 @@ def get_pageDetail(soup):
 
     return page_content
 
+def get_sheet(soup):
+    sheet = soup.find(id="sheet-zone")
+    if sheet:
+        return True
 
 def text_process(soup):
     # 1
@@ -80,14 +84,17 @@ def text_process(soup):
 
     return [tags_list, contradictions_list, mamiitem_list, effect_list, useway_list, interaction_list]
 
-def main(input):
+def main(input="Peritoneal"):
     if Search_page_URL.main(input) is True:
         return True
     else:
         drug_link = Search_page_URL.main(input)
         URL = drug_link
         soup = Search_page_URL.get_page(URL, str(None))
-        return [get_pageDetail(soup), text_process(soup)]
+        if get_sheet(soup):
+            return True
+        else:
+            return [get_pageDetail(soup), text_process(soup)]
 
     '''以下為印出葉面詳細資訊，作為檢查錯誤使用
     print("學名/藥名:" + '\n' + str(get_pageDetail(soup)[0]) + '\n')
@@ -120,10 +127,5 @@ def main(input):
     print('')
     '''
 
-
-
-
-
 if __name__ == '__main__':
-    while True:
-        main()
+    main()

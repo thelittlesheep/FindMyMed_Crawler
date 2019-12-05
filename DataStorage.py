@@ -37,33 +37,33 @@ class multi_thread_Class():
             conn.commit()
             print("第" + str(i+1) + "項資料新增成功")
         conn.close()
-
+i=3000
 def thread1():
-    work1 = multi_thread_Class(0, 101)
+    work1 = multi_thread_Class(i, i+116)
     work1.work()
 
 def thread2():
-    work2 = multi_thread_Class(101, 201)
+    work2 = multi_thread_Class(i+915, i+1001)
     work2.work()
 
 def thread3():
-    work3 = multi_thread_Class(201, 301)
+    work3 = multi_thread_Class(i+1213, i+1501)
     work3.work()
 
 def thread4():
-    work4 = multi_thread_Class(301, 401)
+    work4 = multi_thread_Class(i+1723, i+2001)
     work4.work()
 
 def thread5():
-    work5 = multi_thread_Class(401, 500)
+    work5 = multi_thread_Class(i+2222, i+2500)
     work5.work()
 
 with ThreadPoolExecutor() as executor:
     executor.submit(thread1)
-    executor.submit(thread2)
-    executor.submit(thread3)
-    executor.submit(thread4)
-    executor.submit(thread5)
+    # executor.submit(thread2)
+    # executor.submit(thread3)
+    # executor.submit(thread4)
+    # executor.submit(thread5)
 
 if __name__ == '__main__':
     executor

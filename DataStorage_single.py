@@ -28,8 +28,8 @@ def main():
     print("資料庫連接成功")
     c = conn.cursor()
     db_createtable(c)
-    i = 245
-    name = 'CODEINE PHOSPHATE'
+    i = 537
+    name = 'PERITONEAL DIALYTICS SOLUTIONS'
     db_insert(c, name, i + 1)
     conn.commit()
     print("第" + str(i + 1) + "項資料新增成功")
