@@ -28,8 +28,8 @@ def main():
     print("資料庫連接成功")
     c = conn.cursor()
     db_createtable(c)
-    i = 1886
-    name = '10.0% AMINO ACIDS FOR HEPATIC , 注射劑 , 10.00  %, 500.00 ML'
+    i = 3091
+    name = '3.0% AMINO ACIDS , 注射劑 , 3.00  %, 300.00 ML'
     db_insert(c, name, i + 1)
     conn.commit()
     print("第" + str(i + 1) + "項資料新增成功")
