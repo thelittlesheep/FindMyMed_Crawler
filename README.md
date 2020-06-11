@@ -1,6 +1,6 @@
 # FindMyMed_Crawler
 
-A Flutter application For 106HAMI's Independent Study Project.
+A Web Crawler For 106HAMI's Independent Study Project.
 
 This work is licensed under a [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)][cc-by].
 
